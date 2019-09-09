@@ -5,7 +5,8 @@ import Meetups from '../models/Meetups';
 import Enrollments from '../models/Enrollments';
 import User from '../models/User';
 import File from '../models/File';
-import Mail from '../../lib/Mail';
+import CancellationMail from '../jobs/CancellationMail';
+import Queue from '../../lib/Queue';
 
 class MeetupsController {
   async store(req, res) {
@@ -102,15 +103,10 @@ class MeetupsController {
       usrid.forEach(async usr => {
         const { name, email } = await User.findByPk(usr.user_id);
 
-        await Mail.sendMail({
-          to: `${name} <${email}>`,
-          subject: 'Meetup canceled.',
-          template: 'cancellation',
-          context: {
-            user: name,
-            title: meetup.title,
-            date: meetup.date,
-          },
+        await Queue.add(CancellationMail.key, {
+          name,
+          email,
+          meetup,
         });
       })
     );

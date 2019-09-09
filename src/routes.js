@@ -8,6 +8,7 @@ import FileController from './app/controllers/FileController';
 import MeetupsController from './app/controllers/MeetupsController';
 import EnrollmentController from './app/controllers/EnrollmentController';
 import NotificationController from './app/controllers/NotificationController';
+import SearchController from './app/controllers/SearchController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -25,6 +26,8 @@ routes.post('/meetups', MeetupsController.store);
 routes.get('/meetups', MeetupsController.index);
 routes.put('/meetups', MeetupsController.update);
 routes.delete('/meetups', MeetupsController.delete);
+
+routes.get('/search', SearchController.index);
 
 routes.post('/enroll', EnrollmentController.store);
 
