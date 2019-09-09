@@ -28,6 +28,7 @@ routes.put('/meetups', MeetupsController.update);
 routes.delete('/meetups', MeetupsController.delete);
 
 routes.get('/search', SearchController.index);
+routes.get('/searchmymeets', SearchController.indexUser);
 
 routes.post('/enroll', EnrollmentController.store);
 
