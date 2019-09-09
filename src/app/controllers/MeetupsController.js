@@ -144,7 +144,7 @@ class MeetupsController {
       return res.status(400).json({ error: 'Past dates are not allowed.' });
     }
 
-    if (req.userId !== id) {
+    if (req.userId !== meetup.user_id) {
       return res
         .status(400)
         .json({ error: 'You cannot edit meetups you are not the organizer.' });
