@@ -22,6 +22,7 @@ class SearchController {
         'description',
         'localization',
         'date',
+        'past',
       ],
       limit: 10,
       offset: (page - 1) * 10,

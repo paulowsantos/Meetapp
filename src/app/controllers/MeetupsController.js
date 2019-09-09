@@ -54,6 +54,8 @@ class MeetupsController {
         'localization',
         'date',
         'user_id',
+        'past',
+        'cancelable',
       ],
       limit: 10,
       offset: (page - 1) * 10,
