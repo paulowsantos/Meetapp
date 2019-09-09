@@ -14,6 +14,10 @@ class Enrollments extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.belongsTo(models.Meetups, { foreignKey: 'meetup_id' });
+  }
 }
 
 export default Enrollments;
