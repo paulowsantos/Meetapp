@@ -31,6 +31,7 @@ routes.get('/search', SearchController.index);
 routes.get('/searchmymeets', SearchController.indexUser);
 
 routes.post('/enroll', EnrollmentController.store);
+routes.delete('/enroll', EnrollmentController.delete);
 
 routes.get('/notifications', NotificationController.index);
 routes.put('/notifications/:id', NotificationController.update);

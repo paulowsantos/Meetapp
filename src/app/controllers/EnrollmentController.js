@@ -26,9 +26,9 @@ class EnrollmentController {
 
     // Check if the logged user is the provider of this meetup
     if (req.userId === meetup.user_id) {
-      return res
-        .status(400)
-        .json({ error: "You can't enroll in a meetup you're the organizer" });
+      return res.status(400).json({
+        error: "You can't enroll in a meetup you're the organizer",
+      });
     }
 
     // Check if meetup date is past
@@ -83,6 +83,28 @@ class EnrollmentController {
     await Notification.create({
       content: `New enrollment from ${user.name} in Meetup ${meetup.title}`,
       user: meetup.user_id,
+    });
+
+    return res.json(enrollment);
+  }
+
+  async delete(req, res) {
+    const schema = Yup.object().shape({
+      id: Yup.number().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation fails.' });
+    }
+
+    const { id } = req.body;
+
+    const enrollment = await Enrollment.findByPk(id);
+
+    await enrollment.destroy({
+      where: {
+        id,
+      },
     });
 
     return res.json(enrollment);

@@ -8,7 +8,7 @@ class CancellationMail {
   async handle({ data }) {
     const { name, email, meetup } = data;
 
-    await Mail.senddMail({
+    await Mail.sendMail({
       to: `${name} <${email}>`,
       subject: 'Meetup canceled.',
       template: 'cancellation',

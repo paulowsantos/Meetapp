@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { startOfHour, parseISO, isBefore } from 'date-fns';
+import { isBefore } from 'date-fns';
 
 import Meetups from '../models/Meetups';
 import Enrollments from '../models/Enrollments';
@@ -21,12 +21,10 @@ class MeetupsController {
       return res.status(400).json({ error: 'Validation fails.' });
     }
 
-    const { title, description, localization, date } = req.body;
+    const { title, description, localization, date, banner_id } = req.body;
 
     // Check if meetup date is past
-    const hourStart = startOfHour(parseISO(date));
-
-    if (isBefore(hourStart, new Date())) {
+    if (isBefore(date, new Date())) {
       return res.status(400).json({ error: 'Past dates are not allowed.' });
     }
 
@@ -36,6 +34,7 @@ class MeetupsController {
       localization,
       date,
       user_id: req.userId,
+      banner_id,
     });
 
     return res.json(meetup);
@@ -86,10 +85,10 @@ class MeetupsController {
 
     const { date } = meetup;
 
-    if (date && isBefore(startOfHour(parseISO(date)), new Date())) {
+    if (date && isBefore(date, new Date())) {
       return res
         .status(400)
-        .json({ error: 'Not allowed to delete past meetups.' });
+        .json({ code: 'Not allowed to delete past meetups.' });
     }
 
     if (meetup.user_id !== req.userId) {
@@ -140,7 +139,7 @@ class MeetupsController {
 
     const meetup = await Meetups.findByPk(id);
 
-    if (date && isBefore(startOfHour(parseISO(date)), new Date())) {
+    if (date && isBefore(date, new Date())) {
       return res.status(400).json({ error: 'Past dates are not allowed.' });
     }
 

@@ -2,6 +2,7 @@ import { startOfDay, endOfDay, parseISO } from 'date-fns';
 import Sequelize, { Op } from 'sequelize';
 
 import User from '../models/User';
+import File from '../models/File';
 import Meetups from '../models/Meetups';
 import Enrollments from '../models/Enrollments';
 
@@ -15,6 +16,7 @@ class SearchController {
           [Op.between]: [startOfDay(parseISO(date)), endOfDay(parseISO(date))],
         },
       },
+      order: [['date', 'ASC']],
       attributes: [
         'id',
         'user_id',
@@ -30,6 +32,11 @@ class SearchController {
         {
           model: User,
           attributes: ['id', 'name'],
+        },
+        {
+          model: File,
+          as: 'banner',
+          attributes: ['id', 'path', 'url'],
         },
       ],
     });
@@ -64,6 +71,11 @@ class SearchController {
             {
               model: User,
               attributes: ['id', 'name'],
+            },
+            {
+              model: File,
+              as: 'banner',
+              attributes: ['id', 'path', 'url'],
             },
           ],
         },
