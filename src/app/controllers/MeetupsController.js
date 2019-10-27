@@ -43,7 +43,7 @@ class MeetupsController {
   async index(req, res) {
     const { page = 1 } = req.query;
 
-    const meetups = await Meetups.findAll({
+    const meetups = await Meetups.findAndCountAll({
       where: { user_id: req.userId },
       order: ['date'],
       attributes: [
