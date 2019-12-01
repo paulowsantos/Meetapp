@@ -196,7 +196,7 @@ The base URL is: http://localhost:3333
 
 ```json
 {
-    name: {
+    "name": {
       type: Sequelize.STRING,
       allowNull: false,
     },
@@ -240,7 +240,7 @@ The base URL is: http://localhost:3333
 
 ```json
 {
-    title: {
+    "title": {
       type: Sequelize.STRING,
       allowNull: false,
     },
