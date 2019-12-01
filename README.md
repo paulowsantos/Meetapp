@@ -197,29 +197,29 @@ The base URL is: http://localhost:3333
 ```json
 {
     "name": {
-      type: Sequelize.STRING,
-      allowNull: false,
+      "type": "Sequelize.STRING",
+      "allowNull": false,
     },
-    email: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: true,
+    "email": {
+      "type": "Sequelize.STRING",
+      "allowNull": false,
+      "unique": true,
     },
-    password_hash: {
-      type: Sequelize.STRING,
-      allowNull: false,
+    "password_hash": {
+      "type": "Sequelize.STRING",
+      "allowNull": false,
     },
-    provider: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-      allowNull: false,
+    "provider": {
+      "type": "Sequelize.BOOLEAN",
+      "defaultValue": false,
+      "allowNull": false,
     },
-    avatar_id: {
-      type: Sequelize.INTEGER,
-      references: { model: 'files', key: 'id' },
-      onUpdate: 'CASCADE',
-      onDelete: 'SET NULL',
-      allowNull: true,
+    "avatar_id": {
+      "type": "Sequelize.INTEGER",
+      "references": { "model": "files", "key": "id" },
+      "onUpdate": "CASCADE",
+      "onDelete": "SET NULL",
+      "allowNull": true,
     }
 }
 ```
@@ -241,34 +241,34 @@ The base URL is: http://localhost:3333
 ```json
 {
     "title": {
-      type: Sequelize.STRING,
-      allowNull: false,
+      "type": "Sequelize.STRING",
+      "allowNull": false,
     },
-    description: {
-      type: Sequelize.STRING,
-      allowNull: false,
+    "description": {
+      "type": "Sequelize.STRING",
+      "allowNull": false,
     },
-    localization: {
-      type: Sequelize.STRING,
-      allowNull: false,
+    "localization": {
+      "type": "Sequelize.STRING",
+      "allowNull": false,
     },
-    date: {
-      type: Sequelize.DATE,
-      allowNull: false,
+    "date": {
+      "type": "Sequelize.DATE",
+      "allowNull": false,
     },
-    user_id: {
-      type: Sequelize.INTEGER,
-      references: { model: 'users', key: 'id' },
-      onUpdate: 'CASCADE',
-      onDelete: 'SET NULL',
-      allowNull: true,
+    "user_id": {
+      "type": "Sequelize.INTEGER",
+      "references": { "model": "users", "key": "id" },
+      "onUpdate": "CASCADE",
+      "onDelete": "SET NULL",
+      "allowNull": true,
     },
-    banner_id: {
-      type: Sequelize.INTEGER,
-      references: { model: 'files', key: 'id' },
-      onUpdate: 'CASCADE',
-      onDelete: 'SET NULL',
-      allowNull: false,
+    "banner_id": {
+      "type": "Sequelize.INTEGER",
+      "references": { "model": "files", "key": "id" },
+      "onUpdate": "CASCADE",
+      "onDelete": "SET NULL",
+      "allowNull": false,
     }
 }
 ```
@@ -281,19 +281,19 @@ The base URL is: http://localhost:3333
 
 ```json
 {
-  meetup_id: {
-      type: Sequelize.INTEGER,
-      references: { model: 'meetups', key: 'id' },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-      allowNull: false,
+  "meetup_id": {
+      "type": "Sequelize.INTEGER",
+      "references": { "model": "meetups", "key": "id" },
+      "onUpdate": "CASCADE",
+      "onDelete": "CASCADE",
+      "allowNull": false,
     },
-    user_id: {
-      type: Sequelize.INTEGER,
-      references: { model: 'users', key: 'id' },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-      allowNull: false,
+    "user_id": {
+      "type": "Sequelize.INTEGER",
+      "references": { "model": "users", "key": "id" },
+      "onUpdate": "CASCADE",
+      "onDelete": "CASCADE",
+      "allowNull": false,
     }
 }
 ```
@@ -306,14 +306,14 @@ The base URL is: http://localhost:3333
 
 ```json
 {
-    name: {
-      type: Sequelize.STRING,
-      allowNull: false,
+    "name": {
+      "type": "Sequelize.STRING",
+      "allowNull": false,
     },
-    path: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: true,
+    "path": {
+      "type": "Sequelize.STRING",
+      "allowNull": false,
+      "unique": true,
     }
 }
 ```
