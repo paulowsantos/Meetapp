@@ -102,35 +102,7 @@ The base URL is: http://localhost:3333
 
 | ENDPOINT | Method | Params | URL Params | Success Response | Error Response
 |--|--|--|--|--|--|
-| /users| `POST`  |```json
-{
-    name: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    password_hash: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    provider: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false,
-      allowNull: false,
-    },
-    avatar_id: {
-      type: Sequelize.INTEGER,
-      references: { model: 'files', key: 'id' },
-      onUpdate: 'CASCADE',
-      onDelete: 'SET NULL',
-      allowNull: true,
-    }
-}
-```|-|**Code:** 200 - OK<br />**Content:** <br />`{`<br /> `id:` <User ID>,<br />`name`: <User name>,<br />`email`: <User email>,<br />`provider`: <User provider><br />`}`|<br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "User already exists." }`<br /><br />or<br /><br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "Validation fails." }`<br /><br />or<br /><br />**Code:** 500 - INTERNAL SERVER ERROR<br />**Content:** `{ error:  <A Message with a description of the Error> }`
+| /users| `POST`  |`{`<br />`  name`: `User name`,<br />`  email`: `User email`,<br />`  password`: `User password`<br />`}`|-|**Code:** 200 - OK<br />**Content:** <br />`{`<br /> `id:` <User ID>,<br />`name`: <User name>,<br />`email`: <User email>,<br />`provider`: <User provider><br />`}`|<br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "User already exists." }`<br /><br />or<br /><br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "Validation fails." }`<br /><br />or<br /><br />**Code:** 500 - INTERNAL SERVER ERROR<br />**Content:** `{ error:  <A Message with a description of the Error> }`
 <br />
 
 - **Update a user information.**
