@@ -102,14 +102,14 @@ The base URL is: http://localhost:3333
 
 | ENDPOINT | Method | Params | URL Params | Success Response | Error Response
 |--|--|--|--|--|--|
-| /users| `POST`  |`{`<br />`  name`: `User name`,<br />`  email`: `User email`,<br />`  password`: `User password`<br />`}`|-|**Code:** 200 - OK<br />**Content:** <br />`{`<br /> `id:` <User ID>,<br />`name`: <User name>,<br />`email`: <User email>,<br />`provider`: <User provider><br />`}`|<br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "User already exists." }`<br /><br />or<br /><br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "Validation fails." }`<br /><br />or<br /><br />**Code:** 500 - INTERNAL SERVER ERROR<br />**Content:** `{ error:  <A Message with a description of the Error> }`
+| /users| `POST`  |`{`<br />`name: ,`<br />`email: ,`<br />`password: `<br />`}`|-|**Code:** 200 - OK<br />**Content:** <br />`{`<br /> `id: ,`<br />`name: ,`<br />`email: ,`<br />`provider: `<br />`}`|<br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "User already exists." }`<br /><br />or<br /><br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "Validation fails." }`<br /><br />or<br /><br />**Code:** 500 - INTERNAL SERVER ERROR<br />**Content:** `{ error:  <A Message with a description of the Error> }`
 <br />
 
 - **Update a user information.**
 
 | ENDPOINT | Method | Params | URL Params | Success Response | Error Response
 |--|--|--|--|--|--|
-| /users| `PUT`  |`{`<br />`name`: <User name>,<br />`email`: <User email>,<br />`oldPassword`: <Old password>,<br />`password`: <New password>,<br />`confirmPassword`: <Confirm New Password>,<br />`provider`: <true or false>,<br />`avatar_id`: <ID of the file><br />`}`|-|**Code:** 200 - OK<br />**Content:** <br />`{`<br />`user : {`<br /> `id:` <User ID>,<br />`name`: <User name>,<br />`email`: <User email>,<br />`provider`: <User provider><br />`}`<br />`}`|<br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "User already exists." }`<br /><br />or<br /><br />**Code:** 401 - UNAUTHORIZED<br />**Content:** `{ error:  "Password does not match." }`<br /><br />or<br /><br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "Validation fails." }`<br /><br />or<br /><br />**Code:** 500 - INTERNAL SERVER ERROR<br />**Content:** `{ error:  <A Message with a description of the Error> }`
+| /users| `PUT`  |`{`<br />`name: ,`<br />`email: ,`<br />`oldPassword: ,`<br />`password: ,`<br />`confirmPassword: ,`<br />`provider: ,`<br />`avatar_id: `<br />`}`|-|**Code:** 200 - OK<br />**Content:** <br />`{`<br />`user : {`<br /> `id: ,`<br />`name: ,`<br />`email: ,`<br />`provider: `<br />`}`<br />`}`|<br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "User already exists." }`<br /><br />or<br /><br />**Code:** 401 - UNAUTHORIZED<br />**Content:** `{ error:  "Password does not match." }`<br /><br />or<br /><br />**Code:** 400 - BAD REQUEST<br />**Content:** `{ error:  "Validation fails." }`<br /><br />or<br /><br />**Code:** 500 - INTERNAL SERVER ERROR<br />**Content:** `{ error:  <A Message with a description of the Error> }`
 <br />
 
 ### Session
