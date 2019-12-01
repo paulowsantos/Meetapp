@@ -39,9 +39,9 @@ To use the database, you'll need to have PostgreSQL, MongoDB and Redis installed
 **Cloning the Repository**
 
 ```
-$ git clone https://github.com/steniowagner/mindcast-server
+$ git clone https://github.com/paulowsantos/Meetapp
 
-$ cd mindcast-server
+$ cd Meetapp
 ```
 
 **Installing dependencies**
